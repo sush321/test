@@ -1,0 +1,381 @@
+UNIX --> It is an operating system. It does not provide any GUI(Grafical User Interface) so
+we make use of CLI(Command Line Interface) to perform operations.
+
+In IT industry it is expected that every resource should have atleast basic understanding of
+UNIX OS and it is irrespective of job profile.
+
+Why UNIX? Advantages:
+1) Allows multiple user login at the same time
+2) Allows multitasking
+3) Provides extra security
+4) Reduced time to perform operations
+5) High in performance and low in maintenance
+
+Where do we use UNIX OS in our organizations/projects?
+1) To manage the data stored on server machines as server machines usually have UNIX OS
+2) To access/analyze log files
+
+20 team
+10 devs --> design, development, unit tests
+5 testers --> test scenarios, test cases, defect reports, results, framework
+2 TL --> Resource planning
+1 scrum master --> sprint formation
+1 product owner --> requirement gathering
+1 DBA --> Database related
+
+Linux, fedora, redhat, ubantu --> Subsets of UNIX --> GUI + CLI
+
+Folder --> Directory
+File --> file
+
+Window where we write and execute commands --> terminal window
+
+To establish connection between local(Windows10) and server(UNIX) --> putty configuration
+=============================================================================================
+To create virtual UNIX OS:
+
+https://cocalc.com/app
+==================================================================
+~$ 
+
+$ --> Represents a new command line is open to perform operations
+~ --> Represents we are currently on default location i.e. home directory
+
+windows 10 --> Default screen --> Desktop
+UNIX --> default screen --> Home directory --> ~ --> tilde operator
+
+ls --> listing of files and directories in current working directory
+
+Names having .extension are all files and names not having any extension are all directories.
+
+All UNIX commands are case-sensitive.
+~$ Ls
+bash: Ls: command not found
+~$ lS
+bash: lS: command not found
+~$ LS
+bash: LS: command not found
+
+ls -a --> To include the hidden data in listing the data of current working directory
+
+Names starting with '.' represents hidden data
+
+ls -r --> Reverse listing of data in current working directory
+
+select * from tablename order by columnname desc
+
+ls -->
+Names starting with Numbers --> asc
+Names starting with capital letters --> asc
+Names starting with small letters --> asc
+
+ls -r -->
+Names starting with small letters --> desc
+Names starting with capital letters --> desc
+Names starting with Numbers --> desc
+
+ls -l --> long listing of data in current working directory
+
+drwxr-xr-x  user user       7 Jun 15 13:33  Z --> Directory
+-rw-r--r--  user user     224 Jun 14 14:07  data.txt --> file
+
+drwxr-xr-x  user user       7 Jun 15 13:33  
+-rw-r--r--  user user     224 Jun 14 14:07  
+
+d --> directory
+- --> file
+
+-rw-r--r--  user user     224 Jun 14 14:07  data.txt
+
+Data.txt is created by SHravani --> slp@123
+Data.txt is updated by A --> alp@987
+
+-rw-r--r--  slp@123 alp@987     224 Jun 14 14:07  data.txt
+
+drwxr-xr-x  user user       7 Jun 15 13:33  Z
+
+rwxrwxrwx --> Ideal case
+rwxr-xr-x
+
+r --> read --> view
+w --> write --> modify
+x --> execute --> copy, paste, cut, delete
+
+rwx
+rw-
+r--
+
+rwx                  r-x                  r-x
+owner/user          group                others
+
+A.txt is created by Shravani --> User/owner
+A.txt is shared with 27 feb --> 140 --> others --> r--, rw-, rwx
+
+Group:
+1 school
+1 PC
+100 students
+10 teachers
+
+5 Ids --> students --> r-- --> group1
+5 Ids --> teachers --> rwx --> group 2
+=================================================================================
+~
+ls
+ls -a
+ls -r 
+================================================================================
+pwd --> present working directory
+
+~$ pwd
+/home/user
+================================================================================
+cd --> change directory
+
+syntax: cd directoryname
+
+~/Z/D/4
+
+4 --> immediate parent --> D --> cd ..
+4 --> default parent --> ~ --> cd
+
+parentframe --> To move back to immediate parent
+defaultcontent --> To move back to  maain page 
+
+~/Z/D/4$ cd ..
+~/Z/D$ cd 4
+~/Z/D/4$ cd
+~$ 
+
+~ --> Z --> D --> 4
+
+cd Z/D/4
+
+~$ cd Z/D/4
+~/Z/D/4$ 
+
+~$ cd A/B/C/D/E/F/G/H/I/J/K/L/M/N
+~/A/B/C/D/E/F/G/H/I/J/K/L/M/N$ cd ..
+~/A/B/C/D/E/F/G/H/I/J/K/L/M$ cd A/B/C/D
+bash: cd: A/B/C/D: No such file or directory
+~/A/B/C/D/E/F/G/H/I/J/K/L/M$ cd ~/A/B/C/D
+~/A/B/C/D$ cd
+~$ cd A/B/C/D/E/F/G/H/I/J/K/L/M/N
+~/A/B/C/D/E/F/G/H/I/J/K/L/M/N$ pwd
+/home/user/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+~/A/B/C/D/E/F/G/H/I/J/K/L/M/N$ cd /home/user/A/B/C/D/E/F/G/H
+~/A/B/C/D/E/F/G/H$ 
+=====================================================================================
+mkdir --> make directory --> To create new directory
+
+syntax: mkdir directoryname
+
+To print success messages within terminal window itself we make use of -v i.e. verbose
+
+~/2$ mkdir -v B
+mkdir: created directory 'B'
+
+To separate parent and child we make use of '/'.
+~$ mkdir -v 2/C
+mkdir: created directory '2/C'
+========================================================================================
+mkdir
+-v
+/
+cd
+cd ..
+cd
+ls
+ls -a
+ls -l
+ls -r
+pwd
+===========================================================================================
+
+To create parent and child directories together we make use of -p to avoid any kind of errors.
+~$ mkdir 3/A
+mkdir: cannot create directory ‘3/A’: No such file or directory
+~$ mkdir -pv 3/A
+mkdir: created directory '3'
+mkdir: created directory '3/A'
+
+To create multiple sub-directories at same level, we provide the directory names in {} separated by ,
+3 --> A B C D
+
+mkdir -pv 3/{B,C,D}
+
+~$ mkdir -pv 3/{B,C,D}
+mkdir: created directory '3/B'
+mkdir: created directory '3/C'
+mkdir: created directory '3/D'
+
+3 --> A D E --> X Y Z
+
+mkdir -pv 3/{A,D,E}/{X,Y,Z}
+~$ mkdir -pv 3/{A,D,E}/{X,Y,Z}
+mkdir: created directory '3/A/X'
+mkdir: created directory '3/A/Y'
+mkdir: created directory '3/A/Z'
+mkdir: created directory '3/D/X'
+mkdir: created directory '3/D/Y'
+mkdir: created directory '3/D/Z'
+mkdir: created directory '3/E'
+mkdir: created directory '3/E/X'
+mkdir: created directory '3/E/Y'
+mkdir: created directory '3/E/Z'
+
+mkdir -pv a b c
+mkdir -pv a
+mkdir -pv b
+mkdir -pv c
+
+~$ mkdir -pv a b c
+mkdir: created directory 'a'
+mkdir: created directory 'b'
+mkdir: created directory 'c'
+
+3 --> A D --> 1 2   3 --> E --> 1 2 3
+
+mkdir -pv 3/{A,D}/{1,2} 3/E/{1,2,3}
+
+Whenever we have space in filename / directoryname we always have to include the names in '' bdefore passing
+them in any command.
+New ABC
+
+mkdir -pv 'New ABC'
+
+~$ mkdir -pv 'New ABC'
+mkdir: created directory 'New ABC'
+~$ cd New ABC
+bash: cd: too many arguments
+~$ cd 'New ABC'
+~/New ABC$ 
+===================================================================================================
+rmdir --> Remove directories
+
+Pre-condition: The directory to be removed must be empty
+
+syntax: rmdir directoryname
+
+~$ rmdir 2
+rmdir: failed to remove '2': Directory not empty
+~$ rmdir -v a
+rmdir: removing directory, 'a'
+
+3 --> A D E --> X
+
+rmdir -v 3/{A,D,E}/X
+
+~$ rmdir -v 3/{A,D,E}/X
+rmdir: removing directory, '3/A/X'
+rmdir: removing directory, '3/D/X'
+rmdir: removing directory, '3/E/X'
+=====================================================================================================
+rm -r --> To remove directories having data in it and it can remove empty directories as well
+
+syntax: rm -r directoryname
+
+~$ rm -rv 2
+removed directory '2/C'
+removed directory '2/B'
+removed directory '2/A'
+removed directory '2'
+=================================================================================================
+pwd, cd, mkdir, rmdir --> These are directory specific commands
+=========================================================================================
+
+rm --> To remove files
+
+syntax: rm filename.extension --> rm A.txt
+
+A.txt
+A.pdf
+A.docx
+A.xlxs
+
+~$ rm -v 1.docx
+removed '1.docx'
+
+~$ rm -v folder/{B.txt,C.txt}
+removed 'folder/B.txt'
+removed 'folder/C.txt'
+=========================================================================================
+
+1.txt 2.txt
+A --> 3.txt
+rm -v 1.txt 2.txt A/3.txt
+===========================================================================================
+wc --> word count
+
+syntax: wc filename
+
+~$ wc 'text file new.txt'
+  177|  2455| 16584| text file new.txt
+No of lines| No of words| no of bytes| filename
+===========================================================================================
+man --> To view user manual
+
+syntax: man commandname
+
+press "q" to move out of manual
+===========================================================================================
+cat --> 1) To view the contents of the file
+syntax: cat filename
+2) To merge/concatenate the data of 2 or more files and add it in a new file
+syntax: cat file1 file2 >Newfilename
+
+=============================================================================================
+vi --> 1) To modify the data of an existing file
+2) To create a new file and add data in it
+
+steps:
+1) vi filename
+2) press "i" to move inside insert mode
+3) Add/modify as required
+4) press "esc" to move out of insert mode
+5) write ":"
+6) write "wq"
+7) press "enter" to move back to terminal
+===================================================================================================
+touch --> To create empty files
+
+syntax: touch filename
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
